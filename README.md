@@ -20,6 +20,7 @@ And run the windows batch file which will start the server and access the URL gi
 ```
 http://localhost:9200
 ```
+
 You will get the response JSON as such which indicates that its started and working - 
 
 ```
