@@ -18,6 +18,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.io.IOException;
 import java.util.List;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Component
@@ -91,7 +92,7 @@ public class ElasticSearchClient {
      * 
      * @return
      */
-    public Mono<List<User>> getAllUserData() {
+    public Flux<List<User>> getAllUserData() {
         final String getAllUrl = UrlBuilderUtils.getAllUrl(appConfig);
         return webClientBuilder.build().get().uri(getAllUrl)
                                         .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE).retrieve()
@@ -99,7 +100,7 @@ public class ElasticSearchClient {
                                             LOGGER.error(String.format("Error calling Elastic API to getAll due to : %s",
                                                                             response.statusCode()));
                                             return Mono.error(new UserException(response.toString(), "102"));
-                                        }).bodyToMono(Object.class)
+                                        }).bodyToFlux(Object.class)
                                         .flatMap(response -> Mono.just(ResponseBuilderUtils.prepareList(response)));
     }
 }
