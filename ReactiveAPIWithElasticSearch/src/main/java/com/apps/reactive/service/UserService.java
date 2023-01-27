@@ -4,6 +4,7 @@ import com.apps.reactive.models.User;
 
 import java.util.List;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
@@ -35,5 +36,5 @@ public interface UserService {
      * 
      * @param user
      */
-    public Mono<List<User>> getAllUsers();
+    public Flux<List<User>> getAllUsers();
 }

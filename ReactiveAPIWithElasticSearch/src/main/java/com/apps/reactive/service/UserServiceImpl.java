@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -36,7 +37,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Mono<List<User>> getAllUsers() {
+    public Flux<List<User>> getAllUsers() {
         return elasticSearchClient.getAllUserData();
     }
 }
