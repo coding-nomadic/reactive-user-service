@@ -47,7 +47,7 @@ You will get the response JSON as such which indicates that its started and work
 java -jar ReactiveAPIWithElasticSearch.jar 
 ```
 
-## Rest endpoints with operations- 
+## Hit the Rest endpoints with the following operations- 
 
 ```
 curl --location --request POST 'http://localhost:8080/users' \
