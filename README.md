@@ -76,7 +76,6 @@ curl --location --request PUT 'http://localhost:8080/users' \
 ```
 curl --location --request GET 'http://localhost:8080/users' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Basic cHJzX3N5c3RlbToyRG5YXCU0SHcyYlduQ0Zf' \
 --data-raw ''
 ```
 ```
